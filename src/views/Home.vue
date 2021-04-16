@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png">-->
     <Header/>
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>-->
     <br/>
@@ -9,7 +8,7 @@
         <li v-for="task in tasks" :key="task.id">{{ task.name }}</li>
       </ul>
     </div>
-    <Footer msg="Hey"/>
+    <Footer/>
   </div>
 </template>
 
@@ -19,12 +18,14 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import Footer from '@/components/Footer.vue';
 import Header from '@/components/Header.vue';
 import tasks from '@/views/Tasks';
+import Buttons from '@/components/Buttons.vue';
 
 @Component({
   components: {
     Header,
     HelloWorld,
     Footer,
+    Buttons,
   },
 })
 export default class Home extends Vue {}
