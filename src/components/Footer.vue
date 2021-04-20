@@ -1,14 +1,14 @@
 <template>
-  <footer>
-    <div class="logo-ethz" style="float:right">
+  <footer id="footer">
+    <div class="logo-ethz">
       <a href="https://ethz.ch" target="blank">
-        <img _ngcontent-c1="" src="@/assets/ethz-logo.svg" style="width:150px;height:50px;"/>
+        <img _ngcontent-c1="" src="@/assets/ethz-logo.svg" style="height:40px; margin-top:10px;"/>
       </a>
     </div>
-    <div style="float:right"><h1 style="margin-left: 20px;margin-right: 20px">|</h1></div>
-    <div class="logo-abz" style="float:right">
-      <a href="http://abz.inf.ethz.ch/" target="blank">
-        <img src="@/assets/abz-logo.png" style="width:150px;height:80px;"/>
+    <div class="seperator"></div>
+    <div class="logo-abz">
+      <a href="https://abz.inf.ethz.ch/" target="blank">
+        <img src="@/assets/abz-logo.png" style="height:80px;"/>
       </a>
     </div>
   </footer>
@@ -25,8 +25,28 @@ export default class Footer extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
+
+footer {
+  position:absolute;
+  bottom:0;
+  right: 0;
+  display: flex;
+  padding: 0.5em 2em;
+  justify-content: right;
+}
+
+footer .seperator{
+  width: 3px;
+  height: 50px;
+  margin: 10px 15px;
+  background: #111111;
+}
+
+h1 {
   margin: 40px 0 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  float: right;
 }
 ul {
   list-style-type: none;

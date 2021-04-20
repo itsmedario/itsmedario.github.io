@@ -1,6 +1,8 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+    <br/>
+    <p>Author: Dario Naepfer</p>
   </div>
 </template>
 

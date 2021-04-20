@@ -2,16 +2,18 @@
   <div id="app">
     <div id="nav">
       <div id="button-menu" class="flex-item flex-row flex-center flex-wrap">
-        <button class="card clickable" to="/">
-          <router-link to="/">Home</router-link>
-        </button>
-        <button class="card clickable">
-          <router-link to="/about">About</router-link>
-        </button>
+        <router-link to="/">
+          <button class="card clickable">Home</button>
+        </router-link>
+        <router-link  to="/about">
+          <button class="card clickable">About</button>
+        </router-link>
+        <router-link to="/check-weights">
+          <button class="card clickable">Check Weights</button>
+        </router-link>
       </div>
-      <router-link to="/check-weights">Check Weights</router-link>
+    <hr>
     </div>
-    <Buttons/>
     <router-view id="container"/>
   </div>
 </template>
@@ -19,12 +21,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import Buttons from '@/components/Buttons.vue';
 
 @Component({
-  components: {
-    Buttons,
-  },
+  components: {},
 })
 export default class App extends Vue {}
 </script>
@@ -34,9 +33,11 @@ body{
   background-color: #926cff;
 }
 
-hr {
-  border: 1px solid black;
+hr{
+  border: 1px solid #000;
+  margin: 1em;
 }
+
 button {
   color: black;
   padding: 10px;
