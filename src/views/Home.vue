@@ -1,12 +1,10 @@
 <template>
-  <div class="home">
+  <div id="home">
     <Header/>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>-->
     <br/>
-    <div>
-      <ul>
-        <li v-for="task in tasks" :key="task.id">{{ task.name }}</li>
-      </ul>
+    <div class="cards card clickable">
+        <div v-for="task in items" :key="task.id">{{ task.name }}</div>
+        <li>Hi</li>
     </div>
     <Footer/>
   </div>
@@ -28,5 +26,11 @@ import Buttons from '@/components/Buttons.vue';
     Buttons,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  static get items() {
+    return tasks;
+  }
+}
 </script>
+
+<style scoped></style>

@@ -1,17 +1,24 @@
 <template>
-  <div id="buttons" style="float:left">
-    <router-link to="/"  class="flex-item flex-center card clickable responsive">
-      <img :src="require('/src/assets/icons/back.png')"/>
+  <div class="buttons">
+    <router-link to="/"><button class="flex-item flex-center card clickable responsive">
       <h3>Zurück</h3>
+      <img :src="require('/src/assets/icons/back.png')"/></button>
     </router-link>
-    <router-link to="/"  class="flex-item flex-center card clickable responsive">
-      <img :src="require('/src/assets/icons/back.png')"/>
-      <h3>Zurück</h3>
-    </router-link>
-    <router-link to="/"  class="flex-item flex-center card clickable responsive">
-      <img :src="require('/src/assets/icons/back.png')"/>
-      <h3>Zurück</h3>
-    </router-link>
+
+    <button class="flex-item flex-center card clickable responsive" @click="emitNewStart()">
+      <h3>Nächste Aufgabe</h3>
+      <img :src="require('/src/assets/icons/skip.png')"/>
+    </button>
+
+    <button class="flex-item flex-center card clickable responsive" @click="$emit('new-start')">
+      <h3>Neu starten</h3>
+      <img :src="require('/src/assets/icons/restart.png')"/>
+    </button>
+
+    <button class="flex-item flex-center card clickable responsive" @click="increaseCounter()">
+      <h3>{{ counter }}</h3>
+      <img :src="require('/src/assets/icons/help.png')"/>
+    </button>
   </div>
 </template>
 
@@ -19,8 +26,46 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Buttons extends Vue {}
+export default class Buttons extends Vue {
+  counter = 0;
+
+  increaseCounter() {
+    this.counter += 1;
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+
+.buttons {
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-right: 10px;
+}
+
+.buttons a{
+  text-decoration: none;
+}
+
+.buttons button{
+  padding: 20px;
+}
+
+.buttons button img{
+  width: 55px;
+}
+
+.buttons h3{
+  display: none;
+}
+
+.buttons button:hover h3 {
+  display: block;
+}
+
+</style>

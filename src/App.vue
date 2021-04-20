@@ -1,28 +1,45 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <div id="button-menu" class="flex-item flex-row flex-center flex-wrap">
+        <button class="card clickable" to="/">
+          <router-link to="/">Home</router-link>
+        </button>
+        <button class="card clickable">
+          <router-link to="/about">About</router-link>
+        </button>
+      </div>
       <router-link to="/check-weights">Check Weights</router-link>
     </div>
     <Buttons/>
-    <router-view/>
+    <router-view id="container"/>
   </div>
 </template>
 
-<style>
+<script lang="ts">
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+import Buttons from '@/components/Buttons.vue';
 
+@Component({
+  components: {
+    Buttons,
+  },
+})
+export default class App extends Vue {}
+</script>
+
+<style>
 body{
   background-color: #926cff;
 }
-  
+
 hr {
   border: 1px solid black;
 }
 button {
   color: black;
   padding: 10px;
-  width: 230px;
   font-weight: bold;
 }
 input:focus,
@@ -38,20 +55,25 @@ canvas {
 #app {
   font-family: Helvetica, Arial, sans-serif;
   text-align: center;
-  width: 80%;
   margin: 0 auto;
 }
+
+#container {
+  width: 80%;
+  margin: 2em 10%;
+}
+
 .card {
-  border-radius: 5px;
+  border-radius: 10px;
   background: white;
   border: 3px solid #e7e7e7;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
   padding: 0.5em;
   margin: 1em;
 }
 .clickable:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.9);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
   cursor: pointer;
 }
 .clickable:active {
