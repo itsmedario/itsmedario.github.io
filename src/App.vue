@@ -11,6 +11,12 @@
         <router-link to="/check-weights">
           <button class="card clickable">Check Weights</button>
         </router-link>
+        <router-link to="/build-towers">
+          <button class="card clickable">Build Towers</button>
+        </router-link>
+        <router-link to="/build-bridges">
+          <button class="card clickable">Build Bridges</button>
+        </router-link>
       </div>
     <hr>
     </div>

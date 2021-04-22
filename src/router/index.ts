@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '@/views/Home.vue';
+import views from '@/views/Views';
 
 Vue.use(VueRouter);
 
-const routes: Array<RouteConfig> = [
+let routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
@@ -13,20 +14,39 @@ const routes: Array<RouteConfig> = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
     path: '/check-weights',
-    name: 'CheckWeights',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    name: 'Check Weights',
     component: () => import(/* webpackChunkName: "about" */ '../views/CheckWeights.vue'),
   },
+  {
+    path: '/build-towers',
+    name: 'Build Towers',
+    component: () => import(/* webpackChunkName: "about" */ '../views/BuildTowers.vue'),
+  },
+  {
+    path: '/build-bridges',
+    name: 'Build Bridges',
+    component: () => import(/* webpackChunkName: "about" */ '../views/BuildBridges.vue'),
+  },
 ];
+
+routes = routes.concat(
+  views.map((el) => {
+    const rc: RouteConfig = {
+      path: el.path,
+      component: () => import(`@/views/${el.view}`),
+    };
+    return rc;
+  }),
+);
+
+routes.push({
+  path: '/*',
+  component: Home,
+});
 
 const router = new VueRouter({
   mode: 'history',

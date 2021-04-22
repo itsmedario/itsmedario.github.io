@@ -1,37 +1,4 @@
-<template>
-  <div id="home">
-    <Header/>
-    <br/>
-    <div>{{ this.tasks }}</div>
-    <div v-for="task in this.views" :key="task.id"
-     class="flex-item flex-row flex-center flex-wrap card clickable">
-      {{ task.title }}
-      <img :src="require('@/assets/beavers/beaver.png')" style="padding:15px"/>
-    </div>
-    <Footer/>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Footer from '@/components/Footer.vue';
-import Header from '@/components/Header.vue';
-import tasks from '@/views/Views';
-import Buttons from '@/components/Buttons.vue';
-
-@Component({
-  components: {
-    Header,
-    Footer,
-    Buttons,
-  },
-})
-export default class Home extends Vue {
-  static get items() {
-    return tasks;
-  }
-
-views: Array<{
+const views: Array<{
   id: number;
   path: string;
   title: string;
@@ -88,7 +55,5 @@ views: Array<{
     component: 'BuildTowers',
   },
 ];
-}
-</script>
 
-<style scoped></style>
+export default views;

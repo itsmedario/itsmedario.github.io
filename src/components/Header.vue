@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <h1> Willkommen zur Lernplattform </h1>
-    <img :src="require('@/assets/beavers/beaver_transport2.png')"/>
+    <img :src="require('@/assets/transport/beaver_transport2.png')"/>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class HelloWorld extends Vue {
+export default class Header extends Vue {
   @Prop() private msg!: string;
 }
 </script>

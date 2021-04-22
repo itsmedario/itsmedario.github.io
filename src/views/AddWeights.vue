@@ -1,10 +1,11 @@
 <template>
   <div>
-    <Game :type="'Weights'">
+    <Game>
       <h2 slot="title">Ladungen überprüfen</h2>
       <p slot="description">Überprüfe, ob alle Gewichte verteilt wurden, und für jedes Boot,
          ob es nicht zu schwer beladen ist.</p>
     </Game>
+    <img :src="require('/src/assets/transport/boats.png')"/>
   </div>
 </template>
 

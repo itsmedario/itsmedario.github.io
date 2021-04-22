@@ -27,9 +27,6 @@ export default class Footer extends Vue {
 <style scoped>
 
 footer {
-  position:absolute;
-  bottom:0;
-  right: 0;
   display: flex;
   padding: 0.5em 2em;
   justify-content: right;
