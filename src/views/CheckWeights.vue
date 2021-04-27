@@ -2,8 +2,7 @@
   <div>
     <Game :type="'Weights'">
       <h2 slot="title">Ladungen überprüfen</h2>
-      <p slot="description">Überprüfe, ob alle Gewichte verteilt wurden, und für jedes Boot,
-         ob es nicht zu schwer beladen ist.</p>
+      <p slot="description">Überprüfe, ob alle Gewichte korrekt verteilt wurden</p>
     </Game>
   </div>
 </template>

@@ -1,6 +1,10 @@
 <template>
 <div>
-  <img :src="require('/src/assets/maps/map1.png')" style="width:60%">
+  <img :src="require('/src/assets/maps/map1.png')" style="width:60%"
+   draggable="false" usemap="#workmap">
+  <map name="workmap">
+    <area shape="rect" coords="34,44,270,350" alt="Computer" href="/about">
+  </map>
   <img :src="require('/src/assets/bridges/bridge_short.png')" style="width:6%">
 </div>
 </template>

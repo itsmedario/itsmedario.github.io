@@ -2,18 +2,21 @@
   <div id="app">
     <div id="nav">
       <div id="button-menu" class="flex-item flex-row flex-center flex-wrap">
-        <router-link to="/">
-          <button class="card clickable">Home</button>
+        <router-link to="/home">
+          <button id="home" class="card clickable"
+           @click="selectedTab = 'Home'">Home</button>
         </router-link>
-        <router-link  to="/about">
-          <button class="card clickable">About</button>
-        </router-link>
-        <router-link to="/check-weights">
-          <button class="card clickable">Check Weights</button>
-        </router-link>
-        <router-link to="/build-towers">
-          <button class="card clickable">Build Towers</button>
-        </router-link>
+          <transition name="fade" mode="out-in">
+          <router-link  to="/about">
+            <button class="card clickable">About</button>
+          </router-link>
+          </transition>
+          <router-link to="/check-weights">
+            <button class="card clickable">Check Weights</button>
+          </router-link>
+          <router-link to="/build-towers">
+            <button class="card clickable">Build Towers</button>
+          </router-link>
         <router-link to="/build-bridges">
           <button class="card clickable">Build Bridges</button>
         </router-link>
@@ -31,10 +34,13 @@ import { Component } from 'vue-property-decorator';
 @Component({
   components: {},
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  selectedTab = 'Home';
+}
 </script>
 
 <style>
+
 body{
   background-color: #926cff;
 }
@@ -73,7 +79,7 @@ canvas {
 .card {
   border-radius: 10px;
   background: white;
-  border: 3px solid #e7e7e7;
+  border: 4px solid #e7e7e7;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
   padding: 0.5em;
@@ -120,7 +126,7 @@ canvas {
 }
 .dropzone {
   border: 2px dashed #324197;
-  background: #4658c2;
+  background: none;
   border-radius: 5px;
   min-height: 1em;
   min-width: 1em;
@@ -141,8 +147,8 @@ video {
   height: auto;
 }
 .selected {
-  background: #eeee4e !important;
-  border: 3px solid #dbdb47;
+  background: #4ea1ee !important;
+  border: 3px solid #4ea1ee;
 }
 .locked {
   background: lightgray !important;

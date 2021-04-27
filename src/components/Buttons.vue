@@ -1,9 +1,11 @@
 <template>
 <div>
   <div class="buttons">
-    <router-link to="/"><button class="flex-item flex-center card clickable responsive">
-      <h3>Zurück</h3>
-      <img :src="require('/src/assets/icons/back.png')"/></button>
+    <router-link to="/">
+      <button class="flex-item flex-center card clickable responsive">
+        <h3>Zurück</h3>
+        <img :src="require('/src/assets/icons/back.png')"/>
+      </button>
     </router-link>
 
     <button class="flex-item flex-center card clickable responsive" @click="emitNewStart()">
@@ -16,13 +18,14 @@
       <img :src="require('/src/assets/icons/restart.png')"/>
     </button>
 
-    <button class="flex-item flex-center card clickable responsive" @click="check()">
+    <button class="flex-item flex-center card clickable responsive"
+     @click="$emit('check-solution')">
       <h3>Überprüfen</h3>
       <img :src="require('/src/assets/icons/check.png')"/>
     </button>
 
-    <button class="flex-item flex-center card clickable responsive" @click="showTutorial = true">
-      <h3>Anleitung: {{ counter }}x</h3>
+    <button class="flex-item flex-center card clickable responsive" @click="$emit('show-tutorial')">
+      <h3>Anleitung</h3>
       <img :src="require('/src/assets/icons/help.png')"/>
     </button>
   </div>
@@ -33,14 +36,17 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component
+@Component({
+  components: {
+  },
+})
 export default class Buttons extends Vue {
-  counter = 0;
+  showAnimation = false;
 
-  showTutorial = false;
+  x = 'back';
 
-  increaseCounter() {
-    this.counter += 1;
+  emitNewStart() {
+    this.showAnimation = false;
   }
 }
 </script>

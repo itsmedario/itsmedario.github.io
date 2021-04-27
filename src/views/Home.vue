@@ -17,13 +17,11 @@ import { Component, Vue } from 'vue-property-decorator';
 import Footer from '@/components/Footer.vue';
 import Header from '@/components/Header.vue';
 import tasks from '@/views/Views';
-import Buttons from '@/components/Buttons.vue';
 
 @Component({
   components: {
     Header,
     Footer,
-    Buttons,
   },
 })
 export default class Home extends Vue {
@@ -91,4 +89,8 @@ views: Array<{
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#home {
+   background-image: url('/src/assets/logo.jpg');
+}
+</style>
